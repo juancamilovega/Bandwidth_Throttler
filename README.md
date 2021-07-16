@@ -35,3 +35,7 @@ For the bandwidth throttler as explained in the proof a simpler equation can be 
 ![image](https://user-images.githubusercontent.com/11798516/125961445-e431f1fd-6c48-47e9-8e77-d3eda4792973.png)
 
 Using these equations one can either calculate the penalty for a certain bandwidth or the bandwidth for a certain penalty. It is recommended that SF use a constant value.
+
+## HLS Cores
+
+The Cores are built using Vivado HLS and were tested on version 2018.3. The packet generator uses 171 FFs and 407 LUTs in the maximum width configuration, and the throttler uses  35 FFs and 198 LUTs in the maimum width configuration. Both can operate correctly at clock rates up to 400MHz and bus widths up to 1024 bits wide allowing it to generate precise bitrates of up to 400Gbps traffic. 
