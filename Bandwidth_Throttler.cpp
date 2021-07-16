@@ -21,7 +21,7 @@ struct net_data
 	//ap_uint<16> dest;
 };
 
-void network_throttler(
+void bandwidth_throttler(
 	hls::stream<net_data> &data_in,
 	hls::stream<net_data> &data_out,
 	ap_uint<width_of_penalty> penalty
