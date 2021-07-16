@@ -38,9 +38,10 @@ Using these equations one can either calculate the penalty for a certain bandwid
 
 ## Setting the Packet Size
 
-The Packet Generator allows for any packet size, not just multiples of the data bus width. The bitrate equations handle this. To program the board, for an DW bit bus for PS packet size, set:
+The Packet Generator allows for any packet size, not just multiples of the data bus width. The bitrate equations handle this. To program the board, for an DW bit bus for PS packet size, both in bits, set:
 
-![image](https://user-images.githubusercontent.com/11798516/126000195-46e23af7-bb78-4dba-85d7-3383f7ce2586.png)
+![image](https://user-images.githubusercontent.com/11798516/126000650-741902a7-cd79-4054-9683-de49966e6b4a.png)
+
 
 Note the Last Keep equation is all 1s when PS is a multiple of DW, otherwise it is a series of N 1s followed by all 0s where N is the number of bytes to be transmitted in the last flit.
 
