@@ -1,8 +1,8 @@
-# Readme
+# Packet Generator and Bandwidth Throttler
 
 This repository includes two cores. First is a packet generator that allows the user to generate packets at a specified rate. Second is a bandwidth throttler that allows you to selectively set a maximum bandwidth for an AXI Stream port. This employs backpressure to enforce the bitrate that crosses it is strictly less than the amount specified (and exactly equal if the output applies no backpressure and the input is always ready).
 
-## Core Behaviour
+## Behaviour of Cores
 
 Rather than directly writing the bitrate to the fpga and wasting FPGA space to perform the math, this data needs to be pre-computed and converted into two tuning parameters, the Scaling Factor (SF) and the penalty (PE). The relationship of the FPGA core is as follows, every clock cycle the accomulation function, A(t) evolves as follows:
 
