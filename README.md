@@ -1,6 +1,6 @@
 # Packet Generator and Bandwidth Throttler
 
-This repository includes two cores. First is a packet generator that allows the user to generate packets at a specified rate. Second is a bandwidth throttler that allows you to selectively set a maximum bandwidth for an AXI Stream port. This employs backpressure to enforce the bitrate that crosses it is strictly less than the amount specified (and exactly equal if the output applies no backpressure and the input is always ready).
+This repository includes two cores. First is a packet generator that allows the user to generate packets at a specified rate. Second is a bandwidth throttler that allows you to selectively set a maximum bandwidth for an AXI Stream port. This employs backpressure to enforce the bitrate that crosses it is strictly less than the amount specified (and exactly equal if the output applies no backpressure and the input is always ready). Note the equations account for packet sizes that are not multiples of the axi stream data bus width.
 
 ## Behaviour of Cores
 
@@ -35,6 +35,14 @@ For the bandwidth throttler as explained in the proof a simpler equation can be 
 ![image](https://user-images.githubusercontent.com/11798516/125961445-e431f1fd-6c48-47e9-8e77-d3eda4792973.png)
 
 Using these equations one can either calculate the penalty for a certain bandwidth or the bandwidth for a certain penalty. It is recommended that SF use a constant value.
+
+## Setting the Packet Size
+
+The Packet Generator allows for any packet size, not just multiples of the data bus width. The bitrate equations handle this. To program the board, for an DW bit bus for PS packet size, set:
+
+![image](https://user-images.githubusercontent.com/11798516/125997727-9d0c61fa-a0a0-45e4-b3e3-33daddb6932b.png)
+
+Note the Last Keep equation is all 1s when PS is a multiple of DW, otherwise it is a series of N 1s followed by all 0s where N is the number of bytes to be transmitted in the last flit.
 
 ## HLS Cores
 
