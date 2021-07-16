@@ -38,4 +38,4 @@ Using these equations one can either calculate the penalty for a certain bandwid
 
 ## HLS Cores
 
-The Cores are built using Vivado HLS and were tested on version 2018.3. The packet generator uses 171 FFs and 407 LUTs in the maximum width configuration, and the throttler uses  35 FFs and 198 LUTs in the maimum width configuration. Both can operate correctly at clock rates up to 400MHz and bus widths up to 1024 bits wide allowing it to generate precise bitrates of up to 400Gbps traffic. 
+The Cores are built using Vivado HLS and were tested on version 2018.3. The packet generator uses 107 FFs and 305 LUTs in the maximum width configuration, and the throttler uses  35 FFs and 198 LUTs in the maimum width configuration. Both can operate correctly at clock rates up to 400MHz and bus widths up to 1024 bits wide allowing it to generate precise bitrates of up to 400Gbps traffic. 
