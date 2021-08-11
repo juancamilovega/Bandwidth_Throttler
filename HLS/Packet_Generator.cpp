@@ -37,6 +37,7 @@ void packet_generator(
 #pragma HLS INTERFACE ap_ctrl_none port=return
 #pragma HLS resource core=AXI4Stream variable = data_out
 #pragma HLS DATA_PACK variable=data_out
+#pragma HLS INTERFACE ap_none port=packet_count
 	//Prepare the constants
 	net_data temp_data;
 	static ap_uint<8> flits_count=0; //How many flits of the current packet have been sent
@@ -53,7 +54,7 @@ void packet_generator(
 	temp_data.data.range(383,320) = 0xFEDBEEF5;
 	temp_data.data.range(447,384) = 0xFEDBEEF6;
 	temp_data.data.range(511,448) = 0xFEDBEEF7;
-	if (((active == 1) || (accumulated_penalty<SCALING_FACTOR)) && !data_out.full())
+	if (((active == 1) || (accumulated_penalty<SCALING_FACTOR)) && (!data_out.full())  && (run == 1))
 	{
    		//We are sending a packet, increase A(t)
 		accumulated_penalty = accumulated_penalty + penalty;
